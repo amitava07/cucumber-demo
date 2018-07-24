@@ -32,3 +32,10 @@ Examples:
   | username | password |
   | tim@testemail.com | trpass |
   | lisa@testemail.com | lpass |
+
+Scenario: after a failed attempt, the user should be able to login again
+  When the user enters a set of "<username>" and "<password>"
+  | username | password |
+  | lisa@testemail.com | lpass |
+  | tim@testemail.com | trpass |
+  Then the user should be able to see their account balance
