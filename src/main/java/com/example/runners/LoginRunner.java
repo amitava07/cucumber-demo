@@ -5,6 +5,8 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "project-features", glue = "com.example.step.definitions")
+@CucumberOptions(features = "project-features",
+        glue = "com.example.step.definitions",
+        tags = { "~@ignore"})
 public class LoginRunner {
 }

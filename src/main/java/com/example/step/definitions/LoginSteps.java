@@ -60,4 +60,26 @@ public class LoginSteps {
         String bodyText = webDriver.findElement(By.xpath("html/body")).getText();
         Assert.assertTrue(bodyText.contains(message));
     }
+
+    @When("^user enters username as \"(.*)\"$")
+    public void enter_username(String user) {
+        webDriver.findElement(By.id("MainContent_txtUserName")).sendKeys(user);
+    }
+
+    @When("^user enters password as \"(.*)\"$")
+    public void enter_password(String password) {
+        webDriver.findElement(By.id("MainContent_txtPassword")).sendKeys(password);
+    }
+
+    @And("user clicks on login button")
+    public void clicks_login() {
+        webDriver.findElement(By.id("MainContent_btnLogin")).click();
+    }
+
+    @When("^the user enters username as \"(.*)\" and password as \"(.*)\"$")
+    public void enter_user_and_password(String user, String password) {
+        webDriver.findElement(By.id("MainContent_txtUserName")).sendKeys(user);
+        webDriver.findElement(By.id("MainContent_txtPassword")).sendKeys(password);
+        clicks_login();
+    }
 }
